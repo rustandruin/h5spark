@@ -1,10 +1,12 @@
 import sbt.Resolver
 
+organization := "org.nersc"
+
 name := "h5spark"
 
 version := "1.0"
 
-scalaVersion := "2.10.5"
+scalaVersion := "2.11.8"
 
 resolvers ++= Seq(
 	"Unidata maven repository" at "http://artifacts.unidata.ucar.edu/content/repositories/unidata-releases",

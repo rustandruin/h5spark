@@ -6,8 +6,7 @@
 #SBATCH -t 00:05:00
 #SBATCH -e mysparkjob_%j.err
 #SBATCH -o mysparkjob_%j.out
-#SBATCH --ccm
-##SBATCH --qos=premium
+#SBATCH -C haswell
 #module unload spark/hist-server
 module load spark
 #module load collectl
@@ -32,7 +31,7 @@ spark-submit --verbose\
   --executor-memory 105G\
   --class org.nersc.io.readtest\
   --conf spark.eventLog.enabled=true\
-  --conf spark.eventLog.dir=$SCRATCH/spark/spark_event_logs\
+  --conf spark.eventLog.dir=$SCRATCH/spark/event_logs\
   target/scala-2.10/h5spark-assembly-1.0.jar \
   $repartition $inputfile $dataset 
 
